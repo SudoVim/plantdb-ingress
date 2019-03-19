@@ -67,7 +67,7 @@ def main(argv):
     pprint.pprint(structure)
 
     client = pymongo.MongoClient()
-    result = client.plantsdb.categories.bulk_write(
+    result = client.plantdb.categories.bulk_write(
         [
             pymongo.UpdateOne(
                 {'name': c},
@@ -84,7 +84,7 @@ def main(argv):
     print("Category update result:")
     pprint.pprint(result.bulk_api_result)
 
-    result = client.plantsdb.plants.bulk_write(
+    result = client.plantdb.plants.bulk_write(
         [
             pymongo.UpdateOne(
                 {'name': p['name']},
